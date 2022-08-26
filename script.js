@@ -58,3 +58,23 @@ const closeModal = () => {
 qa('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach(item => {
   item.addEventListener('click', closeModal)
 })
+
+//BOTÕES MAIS MENOS E CLIQUES DOS TAMANHOS
+q('.pizzaInfo--qtmenos').addEventListener('click', () => {
+  if (modalQt > 1) {
+    modalQt--
+    q('.pizzaInfo--qt').innerHTML = modalQt
+  }
+})
+
+q('.pizzaInfo--qtmais').addEventListener('click', () => {
+  modalQt++
+  q('.pizzaInfo--qt').innerHTML = modalQt
+})
+
+qa('.pizzaInfo--size').forEach((item, index) => {
+  item.addEventListener('click', e => {
+    q('.pizzaInfo--size.selected').classList.remove('selected')
+    item.classList.add('selected')
+  })
+})
