@@ -46,3 +46,15 @@ pizzaJson.map((item, indice) => {
 
   q('.pizza-area').append(pizzaItem)
 })
+
+//EVENTOS DO MODAL
+const closeModal = () => {
+  q('.pizzaWindowArea').style.opacity = '0'
+  setTimeout(i => {
+    q('.pizzaWindowArea').style.display = 'none'
+  }, 500)
+}
+
+qa('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach(item => {
+  item.addEventListener('click', closeModal)
+})
