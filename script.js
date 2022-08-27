@@ -1,4 +1,6 @@
 let modalQt = 1
+let cart = []
+let pizzaModal = 0
 
 const q = element => document.querySelector(element)
 const qa = element => document.querySelectorAll(element)
@@ -16,7 +18,9 @@ pizzaJson.map((item, indice) => {
 
   pizzaItem.querySelector('a').addEventListener('click', e => {
     e.preventDefault()
-
+    pizzaModal = parseInt(
+      e.target.closest('.pizza-item').getAttribute('data-key')
+    )
     modalQt = 1
 
     q('.pizzaBig img').src = item.img
@@ -77,4 +81,18 @@ qa('.pizzaInfo--size').forEach((item, index) => {
     q('.pizzaInfo--size.selected').classList.remove('selected')
     item.classList.add('selected')
   })
+})
+
+//ADICIONANDO AO CARRINHO
+q('.pizzaInfo--addButton').addEventListener('click', () => {
+  let tamanho = parseInt(
+    q('.pizzaInfo--size.selected').getAttribute('data-key')
+  )
+  cart.push({
+    pizza: pizzaModal,
+    tamanho: tamanho,
+    qt: modalQt
+  })
+
+  closeModal()
 })
