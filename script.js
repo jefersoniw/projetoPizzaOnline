@@ -108,3 +108,6 @@ q(".pizzaInfo--addButton").addEventListener("click", () => {
 
   closeModal();
 });
+
+
+//ATUALIZANDO CARRINHO E MOSTRANDO NA TELA
