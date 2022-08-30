@@ -8,7 +8,7 @@ const qa = element => document.querySelectorAll(element)
 pizzaJson.map((item, indice) => {
   let pizzaItem = q('.models .pizza-item').cloneNode(true)
 
-  pizzaItem.setAttribute('data-key', indice)
+  pizzaItem.setAttribute('data-key', item.id)
   pizzaItem.querySelector('.pizza-item--img img').src = item.img
   pizzaItem.querySelector(
     '.pizza-item--price'
@@ -112,6 +112,12 @@ q('.pizzaInfo--addButton').addEventListener('click', () => {
 const updateCart = () => {
   if (cart.length > 0) {
     q('aside').classList.add('show')
+
+    for (let i in cart) {
+      let pizzaItem = pizzaJson.find(item => item.id == cart[i].pizza)
+
+      console.log(pizzaItem)
+    }
   } else {
     q('aside').classList.remove('show')
   }
