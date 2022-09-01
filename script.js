@@ -108,8 +108,12 @@ q('.pizzaInfo--addButton').addEventListener('click', () => {
   closeModal()
 })
 
+
 //ATUALIZANDO CARRINHO E MOSTRANDO NA TELA
 const updateCart = () => {
+
+  q('.menu-openner span').innerHTML = cart.length;
+
   if (cart.length > 0) {
     q('aside').classList.add('show')
     q('.cart').innerHTML = ''
@@ -172,3 +176,18 @@ const updateCart = () => {
     q('aside').classList.remove('show')
   }
 }
+
+//ABRINDO CARRINHO NO MOBILE
+q('.menu-openner').addEventListener('click', () => {
+  if(cart.length > 0){
+    q('aside').style.left = '0'
+    q('aside').classList.add('show')
+  }
+})
+
+//FECHANDO CARRINHO NO MOBILE
+q('.menu-closer').addEventListener('click', () => {
+    q('aside').style.left = '100vw';
+    q('aside').classList.remove('show')
+})
+
