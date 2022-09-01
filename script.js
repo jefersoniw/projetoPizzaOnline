@@ -174,6 +174,7 @@ const updateCart = () => {
     q('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`
   } else {
     q('aside').classList.remove('show')
+    q('aside').style.left = '100vw';
   }
 }
 
